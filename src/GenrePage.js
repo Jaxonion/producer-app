@@ -1,6 +1,8 @@
 import React from 'react';
+import appContext from './appContext';
 
 class GenrePage extends React.Component {
+    static contextType = appContext;
     constructor(props){
         super(props)
         this.state = {
@@ -9,20 +11,18 @@ class GenrePage extends React.Component {
     }
 
     render() {
-
-
         return(
             <div className='GenrePage'>
                 <section>
                     <h1>
-                        Genre name
+                        {this.context.selected.charAt(0).toUpperCase() + this.context.selected.slice(1)}
                     </h1>
-                    <h2>Common BPM: ...</h2>
-                    <h2>Common Instruments:... </h2>
-                    <p>Nunc sodales ex quis elit consectetur, eu dignissim lectus porttitor. Phasellus vel est nec ex interdum faucibus et sit amet magna. Nam mollis, leo eget rutrum ultrices, libero elit cursus eros, in rhoncus odio est id libero. Quisque massa mi, pulvinar ac lectus et, dictum consequat purus. Cras et sollicitudin nisl. Nam a est leo. Nunc id lobortis leo. Curabitur sapien nibh, bibendum at ultrices venenatis, maximus et arcu. Donec feugiat semper erat, ac accumsan erat vulputate sit amet.</p>
+                    <h2>BPM: {this.context.genres[this.context.selected.charAt(0).toUpperCase() + this.context.selected.slice(1)].bpm}</h2>
+                    <h2>Common Instruments: {this.context.genres[this.context.selected.charAt(0).toUpperCase() + this.context.selected.slice(1)].instruments}</h2>
+                    <p>{this.context.genres[this.context.selected.charAt(0).toUpperCase() + this.context.selected.slice(1)].info}</p>
                 </section>
                 <section class="spotify">
-                    <h1>Implemented Spotify API with Playlist of Genre</h1>
+                    <h1>{this.context.genres[this.context.selected.charAt(0).toUpperCase() + this.context.selected.slice(1)].music}</h1>
                 </section>
             </div>
         )

@@ -17,19 +17,54 @@ class App extends React.Component {
       describingWords: [],
       questions: ['What do you think about most?','what are you passionate about?','How do you feel? Why?','How could the world improve?'],
       username: '',
+      genres: {
+        Rock: {
+            bpm: '110-140',
+            instruments: 'Electric guitar, bass guitar, drums, keyboards',
+            info: '',
+            music: <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DWXRqgorJj26U" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        },
+        Jazz: {
+            bpm: '120-125',
+            instruments: 'Piano, saxophone, clarinet, trombone, trumpet, electric guitar, vibraphone, flute, french horn, drum kit',
+            info: '',
+            music: <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXbITWG1ZJKYt" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        },
+        EDM: {
+            bpm: '140 +/-',
+            instruments: 'sampler-sequencer, drum machine, bass line generator, drum machine',
+            info: '',
+            music: <iframe src="https://open.spotify.com/embed/playlist/3Di88mvYplBtkDBIzGLiiM" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        },
+        Rap: {
+            bpm: '140 +/-',
+            instruments: 'Bells, strings, piano, synths, brass',
+            info: '',
+            music: <iframe src="https://open.spotify.com/embed/playlist/4pCLzyVRnWpOivB6RwPREo" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        },
+        Techno: {
+          bpm: '120-160',
+          instruments: 'Drum machine, sequencer, synthesizers, digital audio workstation',
+          info: '',
+          music: <iframe src="https://open.spotify.com/embed/playlist/3QEYvCsVXZj8KuzE0bDmcI" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        },
+        Country: {
+          bpm: '80-160',
+          instruments: 'Guitar, drums, bass, piano, fiddle, string bass, banjo',
+          info: '',
+          music: <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX1lVhptIYRda" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        }
+      },
+      selected: 'rock',
     }
   }
 
-  generateRandomQuestion = () => {
-
-  }
-  
-  generateRandomWord = () => {
-    fetch()
-  }
-
-  saveLyrics = () => {
-
+  genre = (changeTo) => {
+    console.log('genre change to', changeTo)
+    this.setState({
+      selected: changeTo
+    })
+    //console.log('genre', this.state.selected)
   }
 
   generateDescribingWord = (word) => {
@@ -88,7 +123,7 @@ class App extends React.Component {
 
   signUp = (username, email, password) => {
     //console.log('username', email, 'password', password)
-    fetch(`http://localhost:8000/api/auth/signup`, {
+    fetch(`https://radiant-dusk-15656.herokuapp.com/api/auth/signup`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -114,7 +149,7 @@ class App extends React.Component {
   login = (user_name, password) => {
     //console.log(user_name, password)
 
-    return fetch(`http://localhost:8000/api/auth/login`, {
+    return fetch(`https://radiant-dusk-15656.herokuapp.com/api/auth/login`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -177,7 +212,7 @@ class App extends React.Component {
       lyrics: lyrics
     })
     console.log(this.state.lyrics)
-    return fetch(`http://localhost:8000/api/auth/update`, {
+    return fetch(`https://radiant-dusk-15656.herokuapp.com/api/auth/update`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -197,7 +232,7 @@ class App extends React.Component {
   }
 
   getUserInfo = () => {
-    fetch(`http://localhost:8000/api/auth/login`, {
+    fetch(`https://radiant-dusk-15656.herokuapp.com/api/auth/login`, {
     method: 'GET',
     headers: {
       'content-type': 'application/json',
@@ -264,6 +299,8 @@ class App extends React.Component {
       value: this.state.value,
       username: this.state.username,
       lyrics: this.state.lyrics,
+      selected: this.state.selected,
+      genres: this.state.genres,
       generateRandomQuestion: this.generateRandomQuestion,
       saveLyrics: this.saveLyrics,
       generateRandomWord: this.generateRandomWord,
@@ -271,9 +308,10 @@ class App extends React.Component {
       generateRhymeWord: this.generateRhymeWord,
       signUp: this.signUp,
       login: this.login,
+      genre: this.genre,
       updateUserLyrics: this.updateUserLyrics
     }
-    console.log('context', contextValue.rhymeWords)
+    console.log('context', contextValue.selected)
     return(
       <appContext.Provider
         value={contextValue}>
@@ -284,7 +322,7 @@ class App extends React.Component {
                 <Link className='header' id='header' to='/'><h1>Producer App</h1></Link>
                 <Link className='header' id='signup' to='/signuppage'>Sign Up</Link>
                 <Link className='header' id='login' to='/loginpage'>Login</Link>
-                <Link className='header' id='logout' onClick={this.logout} >Logout</Link>
+                <Link className='header' id='logout' to='/' onClick={this.logout} >Logout</Link>
               </header>
               <div className='MainPage'>
                 <Route exact path={['/']}

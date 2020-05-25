@@ -7,7 +7,8 @@ class SignUpPage extends React.Component {
         this.state = {
             username: '',
             email: '',
-            password: '',
+            password: ''
+
         }
     }
 

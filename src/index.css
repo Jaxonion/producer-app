@@ -16,6 +16,10 @@ code {
     monospace;
 }
 
+.words {
+  padding-top: 5px;
+}
+
 /* HEADER */
 header {
   background-color: #af413c;
@@ -52,11 +56,11 @@ header {
 /* ALL PAGES */
 
 #signup, #login, #logout {
-  background-image: linear-gradient(to bottom right, #af413c, #3c9caf, #6caf3c);
+  background: #3c9caf;
 }
 
 #signup:hover, #login:hover, #logout:hover {
-  background-image: linear-gradient(to bottom right, #6caf3c, #3c9caf, #af413c)
+  background: #3c9caf;
 }
 
 .App {
@@ -115,7 +119,7 @@ a {
 /* MAIN PAGE */
 
 .MainPage {
-  padding: 5px;
+  padding: 5px 40px 40px 40px;
   margin: 10px;
   height: 100%;
   background: #3c9caf;
