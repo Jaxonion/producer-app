@@ -11,9 +11,11 @@ class MainPage extends React.Component {
         }
     }
 
+    changePage = (event) => {
+        this.context.changePage(event)
+    }
+
     changeGenre = (event) => {
-        //console.log('ran')
-        console.log('change to', event.target.value)
         this.context.genre(event.target.value)
     }
 
@@ -25,16 +27,22 @@ class MainPage extends React.Component {
                     <h1 className='title'>Music Making</h1>
                 </div>
                 <section>
+                    <h2 className='title'>About</h2>
+                    <p>I made this app to help <b>song writers</b> and <b>music producers</b>. The <b>genre page</b> is for producers to see general information about a genre. The <b>brainstorm page</b> is to help song writters to brainstorm and save lyrics.</p>
+                </section>
+                <section>
                     <h2 className='title'>How to use</h2>
-                    <p>Click the drop down, choose the genre of music and click go to see basic information about that genre! If you would like to work on writing lyrics to you song click on yes under the lyrics heading to get started.</p>
+                    <p><b>Producers</b>: click the drop down and choose the genre you will be trying to imitate to see general information on that genre.</p>
+                    <p><b>Song Writers</b>: click on the Brainstorm lyrics tab to start brainstorming lyrics.</p>
                 </section>
                 <section>
                     <h2 className='title'>Genre</h2>
                     <label>
-                        <h3 className='subtitle'>Pick a Genre!</h3>
+                        <h3 className='subtitle'>Learn about a genre!</h3>
                     </label>
                     <div className='selectBox'>
-                        <select onChange={this.changeGenre} className='select' id='genre'>
+                        <select defaultValue={'DEFAULT'} onChange={this.changeGenre} className='select' id='genre'>
+                            <option value='DEFAULT' disabled hidden>Select a Genre</option>
                             <option value='Rock'>Rock</option>
                             <option value='Jazz'>Jazz</option>
                             <option value='EDM'>EDM</option>
@@ -42,20 +50,20 @@ class MainPage extends React.Component {
                             <option value='Techno'>Techno</option>
                             <option value='Country'>Country</option>
                         </select>
-                        <Link className='button' to='/genrepage'>Go</Link>
+                        <Link className='button' id='genres' to='/genrepage' onClick={this.changePage}>Go</Link>
                     </div>
                         
                 </section>
                 <section>
-                    <h2 className='title'>Lyrics</h2>
+                    <h2 className='title'>Brainstorm</h2>
                     <h3 className='subtitle'>Need help brainstorming lyrics?</h3>
-                    <Link className='button' to='/lyricpage'>Yes</Link>
+                    <Link className='button brainstormPageButton' id='brainstorm' to='/lyricpage' onClick={this.changePage}>Yes</Link>
                 </section>
                 <section>
                     <h2 className='title'>
                     About
                     </h2>
-                    <p>I am a music producer and wanted to make an easy way for other producers like myself to get information about different genres in order to make better music!</p>
+                    <p>I am a <b>music producer</b> and wanted to make an <b>easy way</b> for other producers like myself to <b>get information</b> about different <b>genres</b> in order to make better music!</p>
                 </section>
             </div>
         )

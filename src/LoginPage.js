@@ -14,11 +14,13 @@ class LoginPage extends React.Component {
     login = (event) => {
         event.preventDefault()
         const { user_name, password } = event.target
-        //console.log('user_name', user_name.value, 'password', password.value)
         this.context.login(user_name.value, password.value)
             .then(response => {
                 this.props.history.push('/')
             })
+                .catch(err => {
+                    alert('wrong credentials')
+                })
     }
 
     validateLoginInfo = () => {

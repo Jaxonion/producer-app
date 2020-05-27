@@ -17,8 +17,10 @@ class SignUpPage extends React.Component {
     signUp = (event) => {
         event.preventDefault()
         const { user_name, email, password } = event.target
-        //console.log('user_name', user_name.value, 'password', password.value)
         this.context.signUp(user_name.value, email.value, password.value)
+            .then(response => {
+                this.props.history.push('/loginpage')
+            })
     }
 
     handleChangePassword = (event) => {
@@ -34,7 +36,6 @@ class SignUpPage extends React.Component {
     }
 
     validateLoginInfo = () => {
-        //return true
         const REGEX_UPPER_LOWER_NUMBER_SPECIAL = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&])[\S]+/
         if (!this.state.username) {
             return 'username missing'

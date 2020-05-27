@@ -37,7 +37,6 @@ class LyricPage extends React.Component {
         this.setState({
             value: ''
         })
-        console.log(this.context.questions)
     }
 
     generateDescribingWord = (event) => {
@@ -62,6 +61,7 @@ class LyricPage extends React.Component {
         this.context.updateUserLyrics(this.state.lyrics)
             .then(response => {
                 if(!response) {
+                    alert('Login to be able to save lyrics')
                     this.props.history.push('/loginpage')
                 }
             })
