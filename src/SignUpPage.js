@@ -65,7 +65,6 @@ class SignUpPage extends React.Component {
                             <input className='textInput loginText loginTextTop' name='user_name' type='text' placeholder='username' onChange={this.handleChangeUsername} />
                             <input className='textInput loginText' name='email' type='text' placeholder="email" onChange={this.handleChangeEmail} />
                             <input className='textInput loginText loginTextBottom' id='signuppassword' name='password' type='password' placeholder="password" onChange={this.handleChangePassword} />
-                            <p>{this.validateLoginInfo()}</p>
                             <button
                                 className='button loginText loginButton'
                                 type='submit'
@@ -73,6 +72,7 @@ class SignUpPage extends React.Component {
                                     this.validateLoginInfo()
                                 }
                                 >Sign Up</button>
+                            <p className='red' >{this.validateLoginInfo()}</p>
                         </div>
                     </form>
                 </section>

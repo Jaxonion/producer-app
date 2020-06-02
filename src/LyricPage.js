@@ -62,6 +62,7 @@ class LyricPage extends React.Component {
             .then(response => {
                 if(!response) {
                     alert('Login to be able to save lyrics')
+                    this.context.errorChangePage()
                     this.props.history.push('/loginpage')
                 }
             })
@@ -71,17 +72,19 @@ class LyricPage extends React.Component {
         let value = this.context;
         return(
             <div className='LyricPage'>
-                <section>
-                    <h2 className='title'>How to use</h2>
-                    <p>Click one of the two buttons for either a random word or question to help you brainstorm lyrics!</p>
-                </section>
+                <div>
+                    <div className='intro'>
+                        <h1 className='title small'>How to use</h1>
+                    </div>
+                    <p><b>Click one</b> of the three buttons for either a <b>rhyming word</b>, <b>describing word</b> or thought provoking <b>question</b> to help you brainstorm lyrics!</p>
+                </div>
                 <section>
                     <form>
                         <h2 className='title'>Generate Random Question</h2>
                         <button className='button' type='submit' onClick={this.generateRandomQuestion}>
                         <h3>Go</h3>
                         </button>
-                        <p className='words'>Question: {this.state.question}</p>
+                        <p className='words'><b>Question:</b> {this.state.question}</p>
                     </form>
                 </section>
                 <section>
@@ -92,7 +95,7 @@ class LyricPage extends React.Component {
                             <input className='textInput' type='text' value={this.state.value} onChange={this.handleChange} placeholder='random word' />
                             <button className='button' type='submit' value='submit' onClick={this.generateRhymeWord}>Go</button>
                         </div>
-                        <p className='words'>rhyming words: {value.rhymeWords.join(', ')}</p>
+                        <p className='words'><b>Rhyming words:</b> {value.rhymeWords.join(', ')}</p>
                     </form>
                 </section>
                 <section>
@@ -103,7 +106,7 @@ class LyricPage extends React.Component {
                             <input className='textInput' type='text' value={this.state.describe} onChange={this.handleChangeDescribe} placeholder='random word' />
                             <button className='button' type='submit' value='submit' onClick={this.generateDescribingWord}>Go</button>
                         </div>
-                        <p className='words'>describing words: {value.describingWords.join(', ')}</p>
+                        <p className='words'><b>Describing words:</b> {value.describingWords.join(', ')}</p>
                     </form>
                 </section>
                 <section>

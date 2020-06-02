@@ -62,6 +62,12 @@ class App extends React.Component {
     }
   }
 
+  errorChangePage = () => {
+    this.setState({
+      page: 'login'
+    })
+  }
+
   changePage = (event) => {
     this.setState({
       page: event.target.id
@@ -252,6 +258,7 @@ class App extends React.Component {
       saveLyrics: this.saveLyrics,
       generateRandomWord: this.generateRandomWord,
       changePage: this.changePage,
+      errorChangePage: this.errorChangePage,
       generateDescribingWord: this.generateDescribingWord,
       generateRhymeWord: this.generateRhymeWord,
       signUp: this.signUp,

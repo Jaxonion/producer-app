@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import appContext from './appContext';
+import spotifyPic from './pictures/Capture.PNG';
+import howToOne from './pictures/how_to_1.PNG';
+import howToTwo from './pictures/how_to_2.PNG';
+import howToThree from './pictures/how_to_3.PNG';
 
 class MainPage extends React.Component {
     static contextType = appContext;
@@ -27,13 +31,8 @@ class MainPage extends React.Component {
                     <h1 className='title'>Music Making</h1>
                 </div>
                 <section>
-                    <h2 className='title'>About</h2>
+                    <h2 className='title'>Purpose</h2>
                     <p>I made this app to help <b>song writers</b> and <b>music producers</b>. The <b>genre page</b> is for producers to see general information about a genre. The <b>brainstorm page</b> is to help song writters to brainstorm and save lyrics.</p>
-                </section>
-                <section>
-                    <h2 className='title'>How to use</h2>
-                    <p><b>Producers</b>: click the drop down and choose the genre you will be trying to imitate to see general information on that genre.</p>
-                    <p><b>Song Writers</b>: click on the Brainstorm lyrics tab to start brainstorming lyrics.</p>
                 </section>
                 <section>
                     <h2 className='title'>Genre</h2>
@@ -58,6 +57,20 @@ class MainPage extends React.Component {
                     <h2 className='title'>Brainstorm</h2>
                     <h3 className='subtitle'>Need help brainstorming lyrics?</h3>
                     <Link className='button brainstormPageButton' id='brainstorm' to='/lyricpage' onClick={this.changePage}>Yes</Link>
+                </section>
+                <section>
+                    <h2 className='title'>How to use</h2>
+                    <p><b>Producers</b>: click the drop down and choose the genre you will be trying to imitate to see general information on that genre. You can also listen to different artists of that genre to get a better feel for it.</p>
+                    <img className='spotifyPic' src={spotifyPic} />
+                    <p><b>Song Writers</b>: click on the Brainstorm lyrics tab to start brainstorming lyrics.</p>
+                    <div class='pictures'>
+                        <p><b>Generate random question</b> to help brainstorm lyrics.</p>
+                        <img className='howTo' src={howToOne} />
+                        <p>Type in a word to find <b>rhyming word</b></p>
+                        <img className='howTo' src={howToTwo} />
+                        <p>Type in word to find <b>descriptive word</b></p>
+                        <img className='howTo' src={howToThree} />
+                    </div>
                 </section>
                 <section>
                     <h2 className='title'>
