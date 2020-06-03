@@ -14,6 +14,10 @@ The `lyrics page` is to help brainstorm lyrics. It can give you questions to hel
 
 ![](src/pictures/lyricspage.PNG)
 
+The `login page` or `sign up page` can be used to login or create an account and be able to save lyrics.
+
+![](src/pictures/loginpage.PNG)
+
 ## `Technologies Used`
 HTML, CSS, React, PostgreSQL, Javascript, Express, Node and API's
 
