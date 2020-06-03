@@ -61,9 +61,10 @@ class LyricPage extends React.Component {
         this.context.updateUserLyrics(this.state.lyrics)
             .then(response => {
                 if(!response) {
-                    alert('Login to be able to save lyrics')
+                    console.log('lyrics error ran')
                     this.context.errorChangePage()
-                    this.props.history.push('/loginpage')
+                    alert('Login to be able to save lyrics')
+                    window.location.pathname='/loginpage'
                 }
             })
 

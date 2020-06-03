@@ -1,3 +1,5 @@
+/* ALL */
+
 * {
   margin: 0;
   padding: 0;
@@ -40,6 +42,7 @@ code {
 }
 
 /* HEADER */
+
 header {
   background-color: #2BB34C;
   padding: 5px;
@@ -47,6 +50,10 @@ header {
   align-items: center;
   justify-content: space-evenly;
   border-bottom: 2px solid black;
+}
+
+#signup, #login, #logout, .brainstorm, .genres {
+  background: #70FF93;
 }
 
 input {
@@ -58,16 +65,12 @@ input {
   text-decoration: none;
   background-color:#70FF93;
 }
+
 .header {
   padding: 4px;
   margin: 3px;
-  /*background-color: #af413c;*/
   border-radius: 2px;
   box-shadow: 1px 4px;
-}
-
-.red {
-  color: red;
 }
 
 input[type=text]:active {
@@ -81,7 +84,6 @@ input[type=text]:active {
 }
 
 .header:hover, .button:hover, .saveButton:hover {
-  /*background-color: #af413c;*/
   color: white;
 }
 
@@ -93,22 +95,17 @@ input[type=text]:active {
 
 /* ALL PAGES */
 
-#signup, #login, #logout, .brainstorm, .genres {
-  background: #70FF93;
-}
-
-.spotify {
+section, form {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
-
-
-/*#signup:hover, #login:hover, #logout:hover, #brainstorm:hover {
-  background: #3c9caf;
-}*/
+h1, .small {
+  max-width: 250px;
+}
 
 .App {
   border: 5px solid black;
@@ -155,29 +152,16 @@ select, .genreSelect, .title {
   align-items: center;
 }
 
-
 a {
   text-decoration: none;
   color: black;
   padding: 0px 2px;
   border: 1px solid black;
-
-}
-
-.spotifyPic {
-  height: 300px;
-  width: auto;
 }
 
 p {
   font-size: 18px;
   margin: 20px 0px;
-}
-
-.howTo {
-  max-width: 600px;
-  width: 100%;
-  height: auto;
 }
 
 p {
@@ -193,11 +177,23 @@ p {
   padding: 15px;
   margin: 30px;
 }
+
 .subtitle {
   margin-bottom: 50px;
 }
 
 /* MAIN PAGE */
+
+.spotifyPic {
+  height: 300px;
+  width: auto;
+}
+
+.howTo {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+}
 
 .MainPage {
   padding: 5px 40px 40px 40px;
@@ -207,6 +203,18 @@ p {
 }
 
 /* LYRIC PAGE */
+
+.lyrics {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 20px;
+}
+
+.userLyrics {
+  height: 200px;
+}
 
 .inputBox {
   display: flex;
@@ -219,10 +227,6 @@ p {
   display: flex;
   flex-direction: row;
   justify-content: center;
-}
-
-h1, .small {
-  max-width: 250px;
 }
 
 .userLyrics {
@@ -254,39 +258,20 @@ textarea {
   font-size: 16px;
   box-shadow: 1px 4px;
 }
+
 /* GENRE PAGE */
 
+.spotify {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 /* LOGIN PAGE */
 
-
-input[type=text] {
-
-  /*box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);*/
-}
-
-.lyrics {
-  display: flex;
-  flex-direction: column;
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-bottom: 20px;
-}
-
 h2, h1 {
   width: 100%;
-}
-
-section, form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.userLyrics {
-  height: 200px;
 }
 
 .column {
@@ -321,4 +306,10 @@ section, form {
 
 button:disabled, button[disabled=disabled] {
   background-color: #cccccc;
+}
+
+/* SIGN UP PAGE */
+
+.red {
+  color: red;
 }
