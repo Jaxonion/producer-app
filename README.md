@@ -19,7 +19,13 @@ The `login page` or `sign up page` can be used to login or create an account and
 ![](src/pictures/loginpage.PNG)
 
 ## `Technologies Used`
-HTML, CSS, React, PostgreSQL, Javascript, Express, Node and API's
+HTML, CSS, React, PostgreSQL, Javascript, Express, Node, Datamuse and Spotify API's.
+
+## `API Documentation`
+
+Datamuse: https://www.datamuse.com/api/
+
+Spotify: https://developer.spotify.com/documentation/
 
 ## Available Scripts
 
