@@ -111,6 +111,7 @@ class LyricPage extends React.Component {
                     </form>
                 </section>
                 <section>
+                    <h2 className='title'>Your Lyrics</h2>
                     <form className='lyrics'>
                         <textarea value={this.state.lyrics} onChange={this.handleChangeLyrics} className='userLyrics' />
                         <button className='saveButton' type='submit' onClick={this.saveLyrics}>save</button>

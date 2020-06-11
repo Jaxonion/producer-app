@@ -37,8 +37,8 @@ class GenrePage extends React.Component {
                     <p>{this.context.genres[this.context.selected.charAt(0).toUpperCase() + this.context.selected.slice(1)].info}</p>
                 </section>
                 <section className="spotify">
-                    <h1 className='title'>Listen to {this.context.selected.charAt(0).toUpperCase() + this.context.selected.slice(1)}</h1>
-                    <h1>{this.context.genres[this.context.selected.charAt(0).toUpperCase() + this.context.selected.slice(1)].music}</h1>
+                    <h1 className='title'>Listen to {this.context.selected.charAt(0).toUpperCase() + this.context.selected.slice(1) || ''}</h1>
+                    <div className='spotifyContainer'>{this.context.genres[this.context.selected.charAt(0).toUpperCase() + this.context.selected.slice(1)].music || ''}</div>
                 </section>
             </div>
         )

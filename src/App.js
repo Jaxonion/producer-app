@@ -25,37 +25,37 @@ class App extends React.Component {
             bpm: '110-140',
             instruments: 'Electric guitar, bass guitar, drums, keyboards',
             info: '',
-            music: <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DWXRqgorJj26U" width="300" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            music: <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DWXRqgorJj26U" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         },
         Jazz: {
             bpm: '120-125',
             instruments: 'Piano, saxophone, clarinet, trombone, trumpet, electric guitar, vibraphone, flute, french horn, drum kit',
             info: '',
-            music: <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXbITWG1ZJKYt" width="300" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            music: <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXbITWG1ZJKYt" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         },
         EDM: {
             bpm: '140 +/-',
             instruments: 'sampler-sequencer, drum machine, bass line generator, drum machine',
             info: '',
-            music: <iframe src="https://open.spotify.com/embed/playlist/3Di88mvYplBtkDBIzGLiiM" width="300" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            music: <iframe src="https://open.spotify.com/embed/playlist/3Di88mvYplBtkDBIzGLiiM" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         },
         Rap: {
             bpm: '140 +/-',
             instruments: 'Bells, strings, piano, synths, brass',
             info: '',
-            music: <iframe src="https://open.spotify.com/embed/playlist/4pCLzyVRnWpOivB6RwPREo" width="300" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            music: <iframe src="https://open.spotify.com/embed/playlist/4pCLzyVRnWpOivB6RwPREo" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         },
         Techno: {
           bpm: '120-160',
           instruments: 'Drum machine, sequencer, synthesizers, digital audio workstation',
           info: '',
-          music: <iframe src="https://open.spotify.com/embed/playlist/3QEYvCsVXZj8KuzE0bDmcI" width="300" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+          music: <iframe src="https://open.spotify.com/embed/playlist/3QEYvCsVXZj8KuzE0bDmcI" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         },
         Country: {
           bpm: '80-160',
           instruments: 'Guitar, drums, bass, piano, fiddle, string bass, banjo',
           info: '',
-          music: <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX1lVhptIYRda" width="300" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+          music: <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX1lVhptIYRda" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         }
       },
       selected: 'rock',
@@ -145,7 +145,6 @@ class App extends React.Component {
       return res
     })
     .then(response => {
-      console.log(response)
       return response.json()
     })
       .then(response => {

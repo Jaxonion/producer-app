@@ -36,7 +36,7 @@ class MainPage extends React.Component {
                 </section>
                 <section>
                     <h2 className='title'>Genre</h2>
-                    <label>
+                    <label htmlFor='genre'>
                         <h3 className='subtitle'>Learn about a genre!</h3>
                     </label>
                     <div className='selectBox'>
@@ -61,15 +61,15 @@ class MainPage extends React.Component {
                 <section>
                     <h2 className='title'>How to use</h2>
                     <p><b>Producers</b>: click the drop down and choose the genre you will be trying to imitate to see general information on that genre. You can also listen to different artists of that genre to get a better feel for it.</p>
-                    <img className='spotifyPic' src={spotifyPic} />
+                    <img alt='spotifyPic' className='spotifyPic howTo' src={spotifyPic} />
                     <p><b>Song Writers</b>: click on the Brainstorm lyrics tab to start brainstorming lyrics.</p>
-                    <div class='pictures'>
+                    <div className='pictures'>
                         <p><b>Generate random question</b> to help brainstorm lyrics.</p>
-                        <img className='howTo' src={howToOne} />
+                        <img alt='questionGenerator' className='howTo' src={howToOne} />
                         <p>Type in a word to find <b>rhyming word</b></p>
-                        <img className='howTo' src={howToTwo} />
+                        <img alt='rhymingWord' className='howTo' src={howToTwo} />
                         <p>Type in word to find <b>descriptive word</b></p>
-                        <img className='howTo' src={howToThree} />
+                        <img alt='descriptiveWord' className='howTo' src={howToThree} />
                     </div>
                 </section>
                 <section>

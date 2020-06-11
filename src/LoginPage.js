@@ -33,7 +33,7 @@ class LoginPage extends React.Component {
             <div className="LoginPage">
                 <form className='LoginForm column' onSubmit={this.login}>
                 <h1 className='subtitle'>Login</h1>
-                <input className='textInput loginText loginTextTop' id='user_name' name='user_name' type='text' placeholder='password' />
+                <input className='textInput loginText loginTextTop' id='user_name' name='user_name' type='text' placeholder='username' />
                 <input className='textInput loginText loginTextBottom' name='password' type='password' placeholder='password' />
                 <button
                     className='button loginText loginButton'
