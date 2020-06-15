@@ -1,6 +1,7 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 import './App.css';
+import { withRouter } from 'react-router-dom'
 
 import MainPage from './MainPage';
 import LoginPage from './LoginPage';
@@ -62,11 +63,11 @@ class App extends React.Component {
     }
   }
 
-  errorChangePage = () => {
+  /*errorChangePage = () => {
     this.setState({
       page: 'login'
     })
-  }
+  }*/
 
   changePage = (event) => {
     this.setState({
@@ -241,6 +242,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log('updated')
     const contextValue = {
       //set variables for global methods
       rhymeWords: this.state.rhymeWords,
@@ -266,8 +268,6 @@ class App extends React.Component {
       updateUserLyrics: this.updateUserLyrics
     }
     return(
-      <appContext.Provider
-        value={contextValue}>
           <div className='App'>
             <header
               aria-label='producer-app'
@@ -286,46 +286,49 @@ class App extends React.Component {
                   window.location.pathname !== '/lyricpage' ? <Link className='header brainstorm' id='brainstorm' to='/lyricpage' onClick={this.changePage}>Brainstorm Lyrics</Link> : null
                 }
                 {
-                  window.location.pathname !== '/genrepage' ? <Link className='header genres' id='genres' to='genrepage' onClick={this.changePage}>Genres</Link> : null
+                  window.location.pathname !== '/genrepage' ? <Link className='header genres' id='genres' to='/genrepage' onClick={this.changePage}>Genres</Link> : null
                 }
               </header>
-              <div className='MainPage'>
-                <Route exact path={['/']}
-                  render={(props) => {
-                    return(
-                      <MainPage {...props}/>
-                    )
-                  }}/>
-                <Route path={['/lyricpage']}
-                  render={(props) => {
-                    return(
-                      <LyricPage {...props}/>
-                    )
-                  }}/>
-                  <Route path={['/signuppage']}
-                  render={(props) => {
-                    return(
-                      <SignUpPage {...props}/>
-                    )
-                  }}/>
-                <Route path={['/loginpage']}
-                  render={(props) => {
-                    return(
-                      <LoginPage {...props}/>
-                    )
-                  }}/>
-                <Route path={['/genrepage']}
-                  render={(props) => {
-                    return(
-                      <GenrePage {...props}/>
-                    )
-                  }}/>
-              </div>
+              <appContext.Provider
+                value={contextValue}>
+                <div className='MainPage'>
+                  <Switch>
+                  <Route exact path={'/'}
+                    render={(props) => {
+                      return(
+                        <MainPage {...props}/>
+                      )
+                    }}/>
+                  <Route path={'/lyricpage'}
+                    render={(props) => {
+                      return(
+                        <LyricPage {...props}/>
+                      )
+                    }}/>
+                    <Route path={'/signuppage'}
+                    render={(props) => {
+                      return(
+                        <SignUpPage {...props}/>
+                      )
+                    }}/>
+                  <Route path={'/loginpage'}
+                    render={(props) => {
+                      return(
+                        <LoginPage {...props}/>
+                      )
+                    }}/>
+                  <Route path={'/genrepage'}
+                    render={(props) => {
+                      return(
+                        <GenrePage {...props}/>
+                      )
+                    }}/>
+                  </Switch>
+                </div>
+            </appContext.Provider>
           </div>
-
-      </appContext.Provider>
     )
   }
 }
 
-export default App;
+export default withRouter(App);
